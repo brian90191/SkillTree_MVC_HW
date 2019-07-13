@@ -9,7 +9,7 @@ namespace SkillTree_MVC_HW.Models.ViewModels
     public class AccountViewModel
     {
         public string Type { get; set; }
-        public DateTime DT { get; set; }
+        public DateTime CreateTime { get; set; }
         public int Total { get; set; }
     }
 }

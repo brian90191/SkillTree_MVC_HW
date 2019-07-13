@@ -25,7 +25,7 @@ namespace SkillTree_MVC_HW.Controllers
                 var AccountResult = new AccountViewModel()
                 {
                     Type = types[typeIndex],
-                    DT = RandomDay(),
+                    CreateTime = RandomDay(),
                     Total = rndMoney
                 };
 
