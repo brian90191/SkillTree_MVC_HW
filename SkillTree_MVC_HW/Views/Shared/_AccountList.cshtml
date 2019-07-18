@@ -29,7 +29,7 @@
                         @(itemIndex++)
                     </td>
                     <td>
-                        @item.Type
+                        @(item.Type == "0" ? "支出" : "收入")
                     </td>
                     <td>
                         @item.CreateTime.ToString("yyyy-MM-dd")
