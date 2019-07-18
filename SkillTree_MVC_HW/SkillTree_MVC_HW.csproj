@@ -184,9 +184,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
-    <Content Include="Views\Shared\_AccountList.cshtml" />
-    <Content Include="Views\Shared\_AccountForm.cshtml" />
     <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Account\DataList.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

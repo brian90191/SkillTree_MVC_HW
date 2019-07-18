@@ -22,9 +22,16 @@ namespace SkillTree_MVC_HW.Controllers
         // GET: Account
         public ActionResult Index()
         {
+            return View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult DataList()
+        {
             return View(_accountService.Lookup().OrderByDescending(d => d.CreateTime));
         }
 
+        [ChildActionOnly]
         public ActionResult Create()
         {
             return View();

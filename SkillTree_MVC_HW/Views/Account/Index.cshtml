@@ -1,7 +1,7 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Account";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@Html.Partial("_AccountForm")
-@Html.Partial("_AccountList")
+@Html.Action("Create")
+@Html.Action("DataList")
