@@ -34,20 +34,35 @@ namespace SkillTree_MVC_HW.Controllers
         [ChildActionOnly]
         public ActionResult Create()
         {
+            ViewData["AccountTypes"] = GetAccountTypeList();
+
             return View();
         }
 
+        private List<SelectListItem> GetAccountTypeList()
+        {
+            List<SelectListItem> AccountTypeList = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text= "支出", Value = "0" },
+                new SelectListItem() { Text= "收入", Value = "1"}
+            };
+
+            return AccountTypeList;
+        }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Type,Total,CreateTime")]
+        public ActionResult Create([Bind(Include = "AccountType,Total,CreateTime,Notes")]
                                    AccountViewModel account)
         {
             if (ModelState.IsValid)
             {
                 _accountService.Add(account);
                 _accountService.Save();
-                //return RedirectToAction("Index");
             }
+
+            ViewData["AccountTypes"] = GetAccountTypeList();
 
             return View(account);
         }

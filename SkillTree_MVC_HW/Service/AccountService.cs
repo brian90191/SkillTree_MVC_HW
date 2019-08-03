@@ -20,9 +20,11 @@ namespace SkillTree_MVC_HW.Service
         {
             var result = _db.AccountBook.Select(account => new AccountViewModel()
             {
-                Type = account.Categoryyy.ToString(),
+                Id = account.Id,
+                AccountType = account.Categoryyy,
                 Total = account.Amounttt,
-                CreateTime = account.Dateee
+                CreateTime = account.Dateee,
+                Notes = account.Remarkkk
             });
             return result;
         }
@@ -31,15 +33,24 @@ namespace SkillTree_MVC_HW.Service
         {
             _db.AccountBook.Add(new AccountBook
             {
-                Categoryyy = Int32.Parse(account.Type),
+                Id = Guid.NewGuid(),
+                Categoryyy = account.AccountType,
                 Amounttt = account.Total,
-                Dateee = account.CreateTime
+                Dateee = account.CreateTime,
+                Remarkkk = account.Notes
             });
         }
 
         public void Save()
         {
-            _db.SaveChanges();
+            try
+            {
+                _db.SaveChanges();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            {
+                throw ex;
+            }
         }
     }
 }
