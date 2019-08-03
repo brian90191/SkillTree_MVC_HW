@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<SkillTree_MVC_HW.Models.ViewModels.AccountViewModel>
+@using SkillTree_MVC_HW.Helper
 
 @{
     Layout = null;
@@ -20,6 +21,9 @@
                 <th>
                     金額
                 </th>
+                <th>
+                    備註
+                </th>
             </tr>
 
             @{
@@ -33,13 +37,25 @@
                         @(itemIndex++)
                     </td>
                     <td>
-                        @(item.Type == "0" ? "支出" : "收入")
+                        @Html.DisplayTypeColor(item.AccountType)
                     </td>
                     <td>
                         @item.CreateTime.ToString("yyyy-MM-dd")
                     </td>
                     <td>
                         @item.Total.ToString("#,0")
+                    </td>
+
+                    <td style="word-wrap: break-word; min-width: 350px; max-width: 350px;">
+                        @{
+                            String Formatted_Note = item.Notes.ToString();
+                            if (Formatted_Note.Length > 100)
+                            {
+                                Formatted_Note = Formatted_Note.Substring(0, 99) + " ...";
+                            }
+                        }
+
+                        @Formatted_Note
                     </td>
                 </tr>
             }
