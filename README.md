@@ -26,7 +26,7 @@
 
   * 實做 [Service](https://github.com/brian90191/SkillTree_MVC_HW/blob/master/SkillTree_MVC_HW/Service/AccountService.cs) 層
 
-- [ ] 額外挑戰
+- [ ] 額外挑戰 🔥
 
   * `UnitOfWork`
 
@@ -53,6 +53,6 @@
   
   * 類型的「收入」字樣顯現為藍色
 
-- [ ] 進階挑戰
+- [ ] 進階挑戰 🔥
 
   * 將記帳本的寫入功能改為 AJAX
